@@ -24,11 +24,45 @@ public class Users extends AbstractRustagramController {
 
 
     public static Result showSignupForm(){
-        return ok(signup.render());
+        return ok(signup.render(signupForm));
     }
 
     public static Result processSignupForm(){
-	return ok(index.render());
+	Form<UserRegistration> filledForm = signupForm.bindFromRequest();
+
+        RustagramService service = (RustagramService) ctx.getBean("service");
+
+         //Kannski frekar nota try / catch?
+            if(filledForm.field("username").value().length() < 4)
+                filledForm.reject("username", "Username must be at least 4 characters");
+             /*if(!filledForm.field("password").value().equals(filledForm.field("repeatPassword")))
+                 filledForm.reject("repeatPassword", "Passwords do not match");  */
+             if(filledForm.hasErrors())
+                 return badRequest(signup.render(filledForm));
+
+            else
+             {
+                 User created = filledForm.get();
+                 try
+                     {
+                         service.userSignup(created.getUsername(), created.getPassword(), created.getDisplayName(),created.getEmail(), created.getGender());
+                     }
+
+                 catch(UsernameExistsException ex)
+                     {
+                          System.out.println("user exists");
+                     }
+              }
+
+
+
+
+        return ok(signup_success.render());
+
+
+
+
+
     }
 
     public static Result showLoginForm(){

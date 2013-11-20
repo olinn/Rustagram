@@ -18,11 +18,16 @@
                 '_label -> "Password" ,
                 '_help -> "Password must be at least 6 characters"
             )
+            @inputPassword(
+                signupForm("repeatPassword"),
+                '_label -> "Repeat Password" ,
+                '_help -> "Password must be at least 6 characters"
+            )
 
             @inputText(
             signupForm("displayName"),
             '_label -> "display name",
-            '_help - > "Enter your preferred display name",
+            '_help -> "Enter your preferred display name",
             '_error -> signupForm.globalError
             )
 
@@ -32,16 +37,17 @@
             '_help -> "Enter a valid email address",
             '_error -> signupForm.globalError
             )
-            @inputRadioGroup(
+            @inputText(
             signupForm("gender"),
-            options = options("Male" ->"Male", "Female" -> "Female"),
             '_label -> "Gender",
+            '_help -> "Enter MALE or FEMALE",
             '_error -> signupForm.globalError
             )
+
         </fieldset>
 
         <div class="actions">
-            <input type="submit" class="btn primary" value="Login">
+            <input type="submit" class="btn primary" value="Register">
             <a href="@routes.Application.index" class="btn">Cancel</a>
         </div>
     }
