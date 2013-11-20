@@ -32,6 +32,8 @@ public class User {
     this.displayName = displayName;
     this.email = email;
     this.gender = gender;
+    //Creates a timestamp for user creation
+    this.registered = new Date();
   }
 
   public int getId() {

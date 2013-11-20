@@ -1,1 +1,14 @@
-SIGNUP SUCCESS BRAH
+@import play.api.Play.current
+
+@main(title = "Signup success") {
+
+    <h2>Welcome to Rustagram!</h2>
+
+    @if(session.get("username")) {
+
+        <h3> @{session.get("displayName")}, you will be redirected to your feed in a moments time</h3>
+
+    }
+
+
+}

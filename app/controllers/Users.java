@@ -50,7 +50,7 @@ public class Users extends AbstractRustagramController {
 
                  catch(UsernameExistsException ex)
                      {
-                          System.out.println("user exists");
+                          filledForm.reject("username", ex.getMessage());
                      }
               }
 
