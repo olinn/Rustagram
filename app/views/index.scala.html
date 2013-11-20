@@ -1,0 +1,19 @@
+@import play.api.Play.current
+
+@main(title = "Welcome") {
+
+    <h2>Welcome to Rustagram</h2>
+
+    @if(session.get("username")) {
+
+        <h3>Good to see you again @{session.get("displayName")}!</h3>
+
+    } else {
+
+        <h3>Looks like you're new here! Welcome!</h3>
+        <p>
+            <a class="btn" href="@routes.Users.showSignupForm()">Sign up</a>
+            <a class="btn" href="@routes.Users.showLoginForm()">Login</a>
+        </p>
+    }
+}
