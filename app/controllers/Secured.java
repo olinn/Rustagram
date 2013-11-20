@@ -7,7 +7,7 @@ import play.mvc.Security;
 /**
  * A VERY simple login system
  */
-
+/*
 public class Secured extends Security.Authenticator {
 
     @Override
@@ -21,3 +21,4 @@ public class Secured extends Security.Authenticator {
     }
 }
 
+*/
