@@ -1,5 +1,4 @@
-@(user: is.ru.honn.rustagram.domain.User)
-@import play.api.Play.current
+@(user: Form[is.ru.honn.rustagram.domain.User])
 
 
 @main(title = "Signup", nav = "signup") {
@@ -11,7 +10,7 @@
     <p><b>Password:</b> @user.getPassword()<p>
     <p><b>Email:</b> @user.getEmail()<p>
 
-       <!-- <a href="@routes.SessionController.loginForm" class="nice small radius blue button">Login</a>  -->
+
 
 
 }
