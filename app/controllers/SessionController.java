@@ -5,8 +5,8 @@ import is.ru.honn.rustagram.domain.User;
 import is.ru.honn.rustagram.domain.UserAuthentication;
 import play.data.Form;
 import play.mvc.Result;
-import views.html.loginform;
-
+import views.html.login;
+   /*
 public class SessionController extends AbstractRustagramController {
     final static Form<UserAuthentication> loginForm = form(UserAuthentication.class);
 
@@ -15,7 +15,7 @@ public class SessionController extends AbstractRustagramController {
     // A blank login form.
     public static Result loginForm()
     {
-        return ok(loginform.render(loginForm));
+        return ok(login.render(loginForm));
     }
 
     // POST function for the login form
@@ -30,7 +30,7 @@ public class SessionController extends AbstractRustagramController {
             filledForm.reject("password", "Password must be at least 4 characters");
         if (filledForm.hasErrors())
         {
-            return badRequest(loginform.render(filledForm));
+            return badRequest(login.render(filledForm));
         }
 
         UserAuthentication user = filledForm.get();
@@ -60,4 +60,4 @@ public class SessionController extends AbstractRustagramController {
         flash("success", "You've been logged out");
         return redirect(controllers.routes.SessionController.loginForm());
     }
-}
+}    */

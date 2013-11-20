@@ -50,6 +50,21 @@ public class RustagramServiceData implements RustagramService {
     return user;
   }
 
+
+  //Tries to find user by username, if the user is found and password matches, returns the user, else null.
+  @Override
+  public User userLogin(String username, String password)
+  {
+      User user = userDataGateway.getUserByUsername(username);
+      if(user == null)
+          return null;
+
+      if(!user.getPassword().equals(password))
+          return null;
+
+      return user;
+  }
+
   @Override
   public User getUser(String username) throws UserNotFoundException {
     User user = userDataGateway.getUserByUsername(username);

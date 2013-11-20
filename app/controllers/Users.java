@@ -40,25 +40,27 @@ public class Users extends AbstractRustagramController {
              if(filledForm.hasErrors())
                  return badRequest(signup.render(filledForm));
 
-            else
-             {
                  User created = filledForm.get();
+
+                 if(service.getUser(created.getUsername()) != null)
+                     filledForm.reject("username", "Username exists!");
                  try
                      {
                          service.userSignup(created.getUsername(), created.getPassword(), created.getDisplayName(),created.getEmail(), created.getGender());
-                         return ok(signup_success.render(created));
+                         //created
+
                      }
 
                  catch(UsernameExistsException ex)
                      {
                           filledForm.reject("username", ex.getMessage());
                      }
-              }
 
 
 
 
 
+        return ok(login.render(loginForm));
 
 
 

@@ -38,6 +38,11 @@ public interface RustagramService {
    *
    * @throws UserNotFoundException  if no user with the specified username was found.
    */
+
+
+  public User userLogin(String username, String password)
+      throws UserNotFoundException;
+
   public User getUser(String username) throws UserNotFoundException;
 
   /**
@@ -101,3 +106,5 @@ public interface RustagramService {
    */
   public List<Comment> getCommentsOnImage(int imageId) throws ImageNotFoundException;
 }
+
+

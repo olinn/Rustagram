@@ -57,6 +57,14 @@ public class RustagramServiceStub implements RustagramService {
     return user;
   }
 
+   //Login user
+
+    @Override
+    public User userLogin(String username, String password)
+    {
+           return null;
+    }
+
   @Override
   public User getUser(String username) throws UserNotFoundException {
     if (!users.containsKey(username)) {
