@@ -46,6 +46,7 @@ public class Users extends AbstractRustagramController {
                  try
                      {
                          service.userSignup(created.getUsername(), created.getPassword(), created.getDisplayName(),created.getEmail(), created.getGender());
+                         return ok(signup_success.render(created));
                      }
 
                  catch(UsernameExistsException ex)
@@ -57,7 +58,7 @@ public class Users extends AbstractRustagramController {
 
 
 
-        return ok(signup_success.render());
+
 
 
 

@@ -1,14 +1,17 @@
+@(user: is.ru.honn.rustagram.domain.User)
 @import play.api.Play.current
 
-@main(title = "Signup success") {
 
-    <h2>Welcome to Rustagram!</h2>
+@main(title = "Signup", nav = "signup") {
 
-    @if(session.get("username")) {
+    <h2>Your details:</h2>
 
-        <h3> @{session.get("displayName")}, you will be redirected to your feed in a moments time</h3>
+   <p><b>Name:</b> @user.getUsername()<p>
+    <p><b>Display name:</b> @user.getDisplayName()<p>
+    <p><b>Password:</b> @user.getPassword()<p>
+    <p><b>Email:</b> @user.getEmail()<p>
 
-    }
+        <a href="@routes.SessionController.loginForm" class="nice small radius blue button">Login</a>
 
 
 }
