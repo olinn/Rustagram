@@ -24,7 +24,7 @@ public class Users extends AbstractRustagramController {
 
 
     public static Result showSignupForm(){
-        return ok(signup.render(signupForm));
+        return ok(signup.render());
     }
 
     public static Result processSignupForm(){

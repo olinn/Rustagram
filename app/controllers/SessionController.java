@@ -6,7 +6,7 @@ import is.ru.honn.rustagram.domain.UserAuthentication;
 import play.data.Form;
 import play.mvc.Result;
 //import views.html.sessioncontroller.loginform;
-
+  /*
 public class SessionController extends AbstractRustagramController {
     final static Form<UserAuthentication> loginForm = form(UserAuthentication.class);
 
