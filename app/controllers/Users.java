@@ -55,8 +55,8 @@ public class Users extends AbstractRustagramController {
 
                  try {
 
-                     System.out.println(session().get("username"));
-                     service.userSignup(session().get("username"), created.getPassword(), created.getDisplayName(),created.getEmail(), created.getGender());
+                     System.out.println(created.getUsername());
+                     service.userSignup(created.getUsername(), created.getPassword(), created.getDisplayName(),created.getEmail(), created.getGender());
                  }
 
                  catch (UsernameExistsException ex)

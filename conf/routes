@@ -13,9 +13,14 @@ GET         /signup              controllers.Users.showSignupForm()
 POST        /signup              controllers.Users.processSignupForm()
 
 #Add Image
-
 GET         /addimage            controllers.Images.showAddImageForm()
 POST        /addimage            controllers.Images.addImage()
+#View Image
+GET         /view/:id             controllers.Images.viewImage(id: Int)
+
+#Comments
+GET         /view/:id/comments            controllers.Images.getComments(id: Int)
+POST        /view/:id             controllers.Images.addComment(id: Int, username: String, comment: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file        controllers.Assets.at(path="/public", file)

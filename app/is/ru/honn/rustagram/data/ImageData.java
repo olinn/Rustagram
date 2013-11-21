@@ -75,7 +75,7 @@ public class ImageData extends RuData implements ImageDataGateway
     public List<Image> getAllImages() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
         List<Image> images = (List<Image>)jdbcTemplate.query(
-                "select * from ru_images order by id", new ImageRowMapper());
+                "select * from ru_images order by id desc", new ImageRowMapper());
         return images;
     }
 }
