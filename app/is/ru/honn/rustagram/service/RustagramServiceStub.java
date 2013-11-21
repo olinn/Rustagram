@@ -106,6 +106,14 @@ public class RustagramServiceStub implements RustagramService {
     return results;
   }
 
+    //Get all images
+    @Override
+    public List<Image> getAllImages() throws ImageNotFoundException
+    {
+
+       return getAllImages();
+    }
+
   @Override
   public Image getImage(int id) throws ImageNotFoundException {
     if (!images.containsKey(id)) {

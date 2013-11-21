@@ -27,6 +27,8 @@ import views.html.add_image;
  */
 
 
+import java.util.List;
+
 import static play.data.Form.form;
 
 public class Images extends AbstractRustagramController {
@@ -63,7 +65,9 @@ public class Images extends AbstractRustagramController {
             service.createImage(session().get("username"),created.getUrl(), created.getDescription());
 
             System.out.println(created.toString());
-            return ok(index.render());
+            List<Image> imageList = service.getAllImages();
+
+            return ok(index.render(imageList));
         }
         }
 

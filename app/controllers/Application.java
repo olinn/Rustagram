@@ -7,8 +7,8 @@ import play.mvc.*;
 
 
 
-import views.html.*;
 import views.html.index;
+
 
 import java.util.List;
 //import scala.collection.immutable.List;

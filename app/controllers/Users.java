@@ -1,5 +1,6 @@
 package controllers;
 
+import is.ru.honn.rustagram.domain.Image;
 import is.ru.honn.rustagram.domain.User;
 import is.ru.honn.rustagram.domain.UserRegistration;
 import is.ru.honn.rustagram.service.RustagramService;
@@ -16,6 +17,8 @@ import views.html.index;
 import views.html.login;
 import views.html.signup;
 import views.html.summary;
+
+import java.util.List;
 
 public class Users extends AbstractRustagramController {
 
@@ -100,12 +103,13 @@ public class Users extends AbstractRustagramController {
             filledForm.reject("password", "User not found or incorrect password entered.");
             return badRequest(login.render(filledForm));
         }
-
-        return ok(index.render());
+        List<Image> imageList = service.getAllImages();
+        return ok(index.render(imageList));
     }
 
     public static Result logout(){
         session().clear();
-        return ok(index.render());
+
+        return ok(index.render(null));
     }
 }
