@@ -1,0 +1,23 @@
+@(image: is.ru.honn.rustagram.domain.Image, comments: List[is.ru.honn.rustagram.domain.Comment])
+
+
+@import helper._
+@import helper.twitterBootstrap._
+
+<div class="row">
+    <div class="span10">
+        <img src="@image.getUrl" style="max-width:100%; max-height:100%" alt="@image.getDescription">
+        <p><b> @image.getCreatorUsername </b> - @image.getDescription - @image.getCreated</p>
+    </div>
+</div>
+
+    @for(comment <- comments){
+
+<div class="row">
+    <div class="span8-offset2">
+
+    </div>
+</div>
+
+    }
+

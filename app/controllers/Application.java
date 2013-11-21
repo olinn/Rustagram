@@ -21,7 +21,6 @@ public class Application extends AbstractRustagramController {
 
         List<Image> imageList = service.getAllImages();
 
-
         return ok(index.render(imageList));
 
 
