@@ -17,7 +17,7 @@
                     <ul class="nav">
                         @if(session.get("username")) {
                             <li>
-                                <a href="TODO">Add Image</a>
+                                <a href="@routes.Images.showAddImageForm()">Add Image</a>
                             </li>
                             <li>
                                 <a href="@routes.Users.logout()">Logout</a>

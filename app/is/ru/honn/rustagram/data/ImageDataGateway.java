@@ -9,4 +9,5 @@ public interface ImageDataGateway extends RuDataAccess {
   public int addImage(Image image);
   public Image getImageById(int id);
   public List<Image> getImagesByUsername(String username);
+  public List<Image> getAllImages();
 }

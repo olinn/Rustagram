@@ -70,4 +70,12 @@ public class ImageData extends RuData implements ImageDataGateway
         "select * from ru_images where creator_username=?", new ImageRowMapper(), username);
     return images;
   }
+   //New function to fetch list of all images in the system
+    @Override
+    public List<Image> getAllImages() {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(getDataSource());
+        List<Image> images = (List<Image>)jdbcTemplate.query(
+                "select * from ru_images order by id", new ImageRowMapper());
+        return images;
+    }
 }

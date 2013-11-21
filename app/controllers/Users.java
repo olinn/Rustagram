@@ -15,7 +15,7 @@ import static play.data.Form.form;
 import views.html.index;
 import views.html.login;
 import views.html.signup;
-import views.html.signup_success;
+import views.html.summary;
 
 public class Users extends AbstractRustagramController {
 
@@ -52,7 +52,8 @@ public class Users extends AbstractRustagramController {
 
                  try {
 
-                     service.userSignup(created.getUsername(), created.getPassword(), created.getDisplayName(),created.getEmail(), created.getGender());
+                     System.out.println(session().get("username"));
+                     service.userSignup(session().get("username"), created.getPassword(), created.getDisplayName(),created.getEmail(), created.getGender());
                  }
 
                  catch (UsernameExistsException ex)
@@ -63,8 +64,9 @@ public class Users extends AbstractRustagramController {
                  }
 
                  //Kastar villu required: no arguments, found USerRegistration
-                 return ok(signup_success.render(created));
                  System.out.println(created.toString());
+                 return ok(summary.render(created));
+
 
              }
 

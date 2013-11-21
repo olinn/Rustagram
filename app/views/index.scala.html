@@ -1,3 +1,5 @@
+@(imageList: List[is.ru.honn.rustagram.domain.Image])
+
 @import play.api.Play.current
 
 @main(title = "Welcome") {
@@ -7,6 +9,22 @@
     @if(session.get("username")) {
 
         <h3>Good to see you again @{session.get("displayName")}!</h3>
+
+
+        <ol>
+
+        @for(image <- imageList) {
+            <li>
+                <img src="@image.getUrl">
+                <p>@image.getCreatorUsername - @image.getCreated</p>
+            </li>
+
+
+        }
+
+
+
+        </ol>
 
     } else {
 

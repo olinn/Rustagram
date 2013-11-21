@@ -1,0 +1,9 @@
+@(user: is.ru.honn.rustagram.domain.User)
+
+@main(title = "Account summary", nav = "signup") {
+    <h2>Your account:</h2>
+    <p><b>Name:</b> @user.getUsername()</p>
+    <p><b>Username:</b> @user.getDisplayName()</p>
+    <p><b>Password:</b> @user.getPassword()</p>
+    <p><b>Email:</b> @user.getEmail()</p>
+}

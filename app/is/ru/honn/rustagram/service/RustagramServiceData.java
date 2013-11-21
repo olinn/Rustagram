@@ -93,6 +93,11 @@ public class RustagramServiceData implements RustagramService {
   public Image getImage(int id) throws ImageNotFoundException {
     return imageDataGateway.getImageById(id);
   }
+    @Override
+    public List<Image> getAllImages() throws ImageNotFoundException {
+        return imageDataGateway.getAllImages();
+    }
+
 
   @Override
   public Comment addCommentOnImage(String username, int imageId, String comment) throws UserNotFoundException, ImageNotFoundException {

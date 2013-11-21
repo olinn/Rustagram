@@ -12,11 +12,13 @@ GET         /logout              controllers.Users.logout()
 GET         /signup              controllers.Users.showSignupForm()
 POST        /signup              controllers.Users.processSignupForm()
 
+#Add Image
+
+GET         /addimage            controllers.Images.showAddImageForm()
+POST        /addimage            controllers.Images.addImage()
+
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file        controllers.Assets.at(path="/public", file)
 
 
-#Add Image
 
-GET         /addimage            controllers.Images.showAddImage()
-POST        /addimage            controllers.Images.addImage()

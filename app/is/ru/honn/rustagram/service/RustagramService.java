@@ -79,6 +79,13 @@ public interface RustagramService {
    *
    * @throws ImageNotFoundException if no image with the specified ID was found.
    */
+
+
+  //Get all images
+
+  public List<Image> getAllImages() throws ImageNotFoundException;
+
+
   public Image getImage(int id) throws ImageNotFoundException;
 
   /**

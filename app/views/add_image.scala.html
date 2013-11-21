@@ -1,13 +1,40 @@
-@(addImageForm: Form[is.ru.honn.rustagram.domain.Image])
+@(addImageForm: Form[is.ru.honn.rustagram.domain.ImageRegistration])
 
 @import helper._
 
 
-@main(title = "Add image", nav = "login") {
-    @helper.form(action = routes.Images.addImage) {
+@main(title = "Add image", nav = "addimage") {
+
+    @helper.form(action = routes.Images.addImage()) {
+
+        <fieldset>
+            <legend>Add a new image</legend>
 
 
+            @inputText(
+                addImageForm("url"),
+                '_label -> "URL",
+                '_help -> "Link to image" ,
+                '_error -> addImageForm.globalError
+            )
 
+
+            @inputText(
+                addImageForm("description"),
+                '_label -> "Description",
+                '_help -> "Enter a descriptive description",
+                '_error -> addImageForm.globalError
+            )
+
+
+        </fieldset>
+
+        <div class="actions">
+            <input type="submit" class="btn primary" value="Submit">
+            <a href="@routes.Application.index" class="btn">Cancel</a>
+        </div>
 
     }
+
+
 }
