@@ -36,7 +36,7 @@ public class Users extends AbstractRustagramController {
             if(filledForm.field("username").value().length() < 4)
                 filledForm.reject("username", "Username must be at least 4 characters");
 
-             if(!filledForm.field("password").value().equals(filledForm.field("repeatPassword")))
+             if(!filledForm.field("password").value().equals(filledForm.field("repeatPassword").value()))
                  filledForm.reject("repeatPassword", "Passwords do not match");
 
             if(filledForm.field("password").value().length() < 6)
@@ -48,9 +48,24 @@ public class Users extends AbstractRustagramController {
 
              else
              {
-                 User created = filledForm.get();
-                 service.userSignup(created.getUsername(), created.getPassword(), created.getDisplayName(),created.getEmail(), created.getGender());
-                 return ok(signup)
+                  UserRegistration created = filledForm.get();
+
+                 try {
+
+                     service.userSignup(created.getUsername(), created.getPassword(), created.getDisplayName(),created.getEmail(), created.getGender());
+                 }
+
+                 catch (UsernameExistsException ex)
+                 {
+                     filledForm.reject("username", ex.getMessage());
+                     return badRequest(signup.render(filledForm));
+
+                 }
+
+                 //Kastar villu required: no arguments, found USerRegistration
+                 return ok(signup_success.render(created));
+                 System.out.println(created.toString());
+
              }
 
     }

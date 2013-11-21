@@ -14,3 +14,9 @@ POST        /signup              controllers.Users.processSignupForm()
 
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file        controllers.Assets.at(path="/public", file)
+
+
+#Add Image
+
+GET         /addimage            controllers.Images.showAddImage()
+POST        /addimage            controllers.Images.addImage()
